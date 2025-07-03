@@ -33,6 +33,7 @@ export async function createEditCabin(newCabin, id) {
     console.error(error);
     throw new Error("Cabins could not be created");
   }
+  if (hasImagePath) return data; // this is to handle duplicate in create if image path present then we don't need to upload photo again
   // on Success upload the image to supabase basket
   const { error: storageError } = await supabase.storage
     .from("cabin-images")
