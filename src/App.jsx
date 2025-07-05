@@ -25,7 +25,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
-      {/* <ReactQueryDevTools /> install the react-query devtools first then uncomment this command is npm i @tanstack/react-query-devtools */}
+      {/* <ReactQueryDevTools /> install the react-query devtools first then uncomment this, command is npm i @tanstack/react-query-devtools */}
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
