@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
 
@@ -51,12 +52,17 @@ const Button = styled.button`
 `;
 
 export default function Modal({ children, onClose }) {
-  <Overlay>
-    <StyledModal>
-      <Button onClick={onClose}>
-        <HiXMark />
-      </Button>
-      <div>{children}</div>
-    </StyledModal>
-  </Overlay>;
+  return createPortal(
+    <Overlay>
+      <StyledModal>
+        <Button onClick={onClose}>
+          <HiXMark />
+        </Button>
+        <div>{children}</div>
+      </StyledModal>
+    </Overlay>,
+    document.body
+  );
 }
+
+// in createPortal Function it is part of react-dom we pass two argument first is our jsx and second is our place where we want to place this jsx here we want in Document.body and we could also select other place as well like document.querySelector() like this
