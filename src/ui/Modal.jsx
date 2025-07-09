@@ -66,3 +66,5 @@ export default function Modal({ children, onClose }) {
 }
 
 // in createPortal Function it is part of react-dom we pass two argument first is our jsx and second is our place where we want to place this jsx here we want in Document.body and we could also select other place as well like document.querySelector() like this
+
+
