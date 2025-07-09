@@ -2,7 +2,7 @@
 import Button from "../../ui/Button";
 import CreateCabinForm from "./CreateCabinForm";
 import Modal from "../../ui/Modal-v1";
-import CabinTable from "./CabinTable";
+// import CabinTable from "./CabinTable";
 
 // export default function AddNewCabin() {
 //   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -23,22 +23,24 @@ import CabinTable from "./CabinTable";
 
 export default function AddNewCabin() {
   return (
-    <Modal>
-      <Modal.Open opens="cabin-form">
-        <Button>Add new cabin</Button>
-      </Modal.Open>
-      <Modal.Window name="cabin-form">
-        <CreateCabinForm />
-      </Modal.Window>
-      {/* we also want user can open multiple modal window as well but only one will be open at the same time so Modal.Open should know which window it should open so will pass prop opens and name as above */}
-      <Modal.Open opens="table">
+    <div>
+      <Modal>
+        <Modal.Open opens="cabin-form">
+          <Button>Add new cabin</Button>
+        </Modal.Open>
+        <Modal.Window name="cabin-form">
+          <CreateCabinForm />
+        </Modal.Window>
+        {/* we also want user can open multiple modal window as well but only one will be open at the same time so Modal.Open should know which window it should open so will pass prop opens and name as above */}
+        {/* <Modal.Open opens="table">
         <Button>Show Table</Button>
       </Modal.Open>
       <Modal.Window name="table">
-        {/* now this will open table in Modal Window in this way we use multiple window as well */}
+        now this will open table in Modal Window in this way we use multiple window as well
         <CabinTable />
-      </Modal.Window>
-    </Modal>
+      </Modal.Window> */}
+      </Modal>
+    </div>
   );
 }
 
