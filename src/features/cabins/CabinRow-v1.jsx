@@ -77,7 +77,8 @@ export default function CabinRow({ cabin }) {
   //   },
   // });
   const { isDeleting, deleteCabin } = useDeleteCabin();
-  const { isCreating, createCabin } = useCreateCabin();
+  // const { isCreating, createCabin } = useCreateCabin();
+  const { createCabin } = useCreateCabin();
 
   const handleDuplicate = () => {
     createCabin({
