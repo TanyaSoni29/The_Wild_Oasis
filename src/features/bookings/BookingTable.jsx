@@ -35,3 +35,5 @@ function BookingTable() {
 }
 
 export default BookingTable;
+
+// here we include the filtering of Bookings from server side for that we will have to pass params from Search query that we set using useSearchParams now we will implement this in useBooking.js
