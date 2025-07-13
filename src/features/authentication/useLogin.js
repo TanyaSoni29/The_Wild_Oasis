@@ -1,15 +1,16 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { login as loginApi } from "../../services/apiAuth";
 
 export function useLogin() {
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { mutate: login, isLoading: isLogging } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-      console.log(user);
       toast.success("User Logged in Successfully");
+      queryClient.setQueriesData(["user"], user); // this is same query key for getUser in this way we can set the cache manually as well
       navigate("/dashboard");
     },
     onError: (err) => {
@@ -20,3 +21,8 @@ export function useLogin() {
 
   return { login, isLogging };
 }
+
+// why we need one more function for getting authenticated user because user also load the dashboard after one day or any another so the user must be authenticated for that
+
+// now when we already inside the dashboard after login immediately then we does not need fetch user again it should fetch user again if we reload the app completely
+//  show to implement this we will cache the user from Login api returned data and manually cached that user in React query

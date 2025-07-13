@@ -14,7 +14,15 @@ function LoginForm() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!email || !password) return;
-    login({ email, password });
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword(""); // here we write this because we don't have access of these state in useLogin hook page
+        },
+      }
+    );
   }
 
   return (
