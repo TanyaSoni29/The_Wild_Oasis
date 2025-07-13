@@ -22,6 +22,8 @@ function BookingDetail() {
   const { booking, isLoading } = useBooking();
   console.log(" booking Id booking", booking);
   const moveBack = useMoveBack();
+  if (isLoading) return <Spinner />;
+  
   const { status, id: bookingId } = booking;
 
   const statusToTagName = {
@@ -29,8 +31,6 @@ function BookingDetail() {
     "checked-in": "green",
     "checked-out": "silver",
   };
-
-  if (isLoading) return <Spinner />;
 
   return (
     <>
