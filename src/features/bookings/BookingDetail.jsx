@@ -9,8 +9,8 @@ import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 
 import { useMoveBack } from "../../hooks/useMoveBack";
-import { useBooking } from "./useBookings";
 import Spinner from "../../ui/Spinner";
+import { useBooking } from "./useBooking";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -20,8 +20,8 @@ const HeadingGroup = styled.div`
 
 function BookingDetail() {
   const { booking, isLoading } = useBooking();
+  console.log(" booking Id booking", booking);
   const moveBack = useMoveBack();
-
   const { status, id: bookingId } = booking;
 
   const statusToTagName = {
@@ -37,7 +37,7 @@ function BookingDetail() {
       <Row type="horizontal">
         <HeadingGroup>
           <Heading as="h1">Booking #{bookingId}</Heading>
-          <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
+          <Tag type={statusToTagName[status]}>{status?.replace("-", " ")}</Tag>
         </HeadingGroup>
         <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
       </Row>
