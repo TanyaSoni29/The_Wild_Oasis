@@ -10,8 +10,8 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
       toast.success("User Logged in Successfully");
-      queryClient.setQueriesData(["user"], user); // this is same query key for getUser in this way we can set the cache manually as well
-      navigate("/dashboard");
+      queryClient.setQueryData(["user"], user.user); // this is same query key for getUser in this way we can set the cache manually as well
+      navigate("/dashboard", { replace: true }); // replace true because we basically erasing the previous route track so going back button will not work
     },
     onError: (err) => {
       console.log("ERR", err);
