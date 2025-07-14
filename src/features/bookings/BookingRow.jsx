@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { format, isToday } from "date-fns";
-import { HiArrowDownOnSquare, HiArrowUpOnSquare, HiEye } from "react-icons/hi2";
+import {
+  HiArrowDownOnSquare,
+  HiArrowUpOnSquare,
+  HiEye,
+  HiTrash,
+} from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 
 import Tag from "../../ui/Tag";
