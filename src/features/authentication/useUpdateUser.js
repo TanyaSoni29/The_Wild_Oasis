@@ -9,7 +9,7 @@ export function useUpdateUser() {
     onSuccess: ({ user }) => {
       toast.success("User account successfully updated");
       queryClient.setQueryData(["user"], user); // manual updating the user cache with the receive data from api
-      queryClient.invalidateQueries({ queryKey: ["user"] });
+      //   queryClient.invalidateQueries({ queryKey: ["user"] }); now we does not need this upper one is sufficient
     },
     onError: (err) => toast.error(err?.message),
   });
