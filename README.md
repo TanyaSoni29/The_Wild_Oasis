@@ -1,3 +1,5 @@
 # The Wild Oasis
 
- Test login credential - tanya@gmail.com , PASS0987
+Backend Build with Supabase.
+
+Test login credential - tanya@gmail.com , PASS0987
