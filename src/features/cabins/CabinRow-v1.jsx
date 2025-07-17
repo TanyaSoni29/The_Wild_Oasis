@@ -77,8 +77,7 @@ export default function CabinRow({ cabin }) {
   //   },
   // });
   const { isDeleting, deleteCabin } = useDeleteCabin();
-  // const { isCreating, createCabin } = useCreateCabin();
-  const { createCabin } = useCreateCabin();
+  const { createCabin, isCreating } = useCreateCabin();
 
   const handleDuplicate = () => {
     createCabin({
@@ -140,6 +139,7 @@ export default function CabinRow({ cabin }) {
                 <Menus.Button
                   icon={<HiSquare2Stack />}
                   onClick={handleDuplicate}
+                  disabled={isCreating}
                 >
                   Duplicate
                 </Menus.Button>
